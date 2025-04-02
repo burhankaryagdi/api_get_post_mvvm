@@ -60,17 +60,20 @@ class _LoginViewState extends State<LoginView> {
               prefixIcon: Icon(Icons.lock),
             ),
           ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey),
-            child: Text(
-              "Login",
-              style: TextStyle(fontSize: 25, color: Colors.white),
-            ),
-            onPressed: () {
-              loginViewModel.login(context);
-            },
-          ),
+          loginViewModel.isLoading
+              ? CircularProgressIndicator()
+              : ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey,
+                ),
+                child: Text(
+                  "Login",
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+                ),
+                onPressed: () {
+                  loginViewModel.login(context);
+                },
+              ),
         ],
       ),
     );
