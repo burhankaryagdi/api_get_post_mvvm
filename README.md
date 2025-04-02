@@ -1,16 +1,4 @@
-# api_get_post_mvvm
+The application I made using API with Get-Post-MVVM (model/view/view-model) features.
+<img width="358" alt="Ekran Resmi 2025-04-02 17 55 29" src="https://github.com/user-attachments/assets/97987a9f-3168-4850-80ef-3aaffc45e293" />
+<img width="358" alt="ss2" src="https://github.com/user-attachments/assets/16a208eb-5f83-497c-8906-2eca8c447ebb" />
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
