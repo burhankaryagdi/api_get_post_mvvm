@@ -1,7 +1,15 @@
+import 'package:api_get_post_mvvm/view_model/login_view_model.dart';
 import 'package:flutter/material.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   const LoginView({super.key});
+
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  LoginViewModel loginViewModel = LoginViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -11,14 +19,60 @@ class LoginView extends StatelessWidget {
   AppBar _buildAppBar() {
     return AppBar(
       backgroundColor: Colors.blueGrey,
+      centerTitle: true,
       title: Text(
         "Login Page",
-        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
       ),
     );
   }
 
   _buildBody() {
-    return Column();
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FlutterLogo(size: 170),
+          SizedBox(height: 20),
+          TextField(
+            controller: loginViewModel.emailController,
+            decoration: InputDecoration(
+              labelText: "Email",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              prefixIcon: Icon(Icons.email),
+            ),
+          ),
+          SizedBox(height: 20),
+          TextField(
+            controller: loginViewModel.passwordController,
+            obscureText: false,
+            decoration: InputDecoration(
+              labelText: "Password",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              prefixIcon: Icon(Icons.lock),
+            ),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.blueGrey),
+            child: Text(
+              "Login",
+              style: TextStyle(fontSize: 25, color: Colors.white),
+            ),
+            onPressed: () {
+              loginViewModel.login(context);
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
