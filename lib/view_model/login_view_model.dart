@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:api_get_post_mvvm/model/login_model.dart';
 import 'package:api_get_post_mvvm/view/home_view.dart';
+import 'package:api_get_post_mvvm/view/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
