@@ -1,5 +1,6 @@
-import 'package:api_get_post_mvvm/view_model/login_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../view_model/login_view_model.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});

@@ -1,6 +1,7 @@
-import 'package:api_get_post_mvvm/model/home_model.dart';
-import 'package:api_get_post_mvvm/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../model/user.dart';
+import '../view_model/home_view_model.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key, required String token});
@@ -11,7 +12,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final HomeViewModel _homeViewModel = HomeViewModel();
-  List<HomeModel> users = [];
+  List<User> users = [];
 
   @override
   void initState() {
@@ -44,7 +45,7 @@ class _HomeViewState extends State<HomeView> {
 
   _buildBody() {
     return ListView.builder(
-      itemCount: 7,
+      itemCount: users.length,
       itemBuilder: (context, index) {
         return ListTile(
           title: Text(users[index].name!),

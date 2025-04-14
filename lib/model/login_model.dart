@@ -4,15 +4,12 @@ class LoginModel {
 
   LoginModel({this.email, this.password});
 
-  LoginModel.fromJson(Map<String, dynamic> json) {
-    email = json['email'];
-    password = json['password'];
+  factory LoginModel.fromJson(Map<String, dynamic> json) {
+    return LoginModel(
+      email: json['email'] as String?,
+      password: json['password'] as String?,
+    );
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['email'] = email;
-    data['password'] = password;
-    return data;
-  }
+  Map<String, dynamic> toJson() => {'email': email, 'password': password};
 }

@@ -4,7 +4,7 @@
             "outputFile": "com.example.api_get_post_mvvm.app-mergeDebugResources-4:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Applications/Castlexe/Codexe/GitHub Projelerim/api_mvvm/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

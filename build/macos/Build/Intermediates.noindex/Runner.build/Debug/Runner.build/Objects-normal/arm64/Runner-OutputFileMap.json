@@ -1,0 +1,48 @@
+{
+  "" : {
+    "diagnostics" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/Runner-master.dia",
+    "emit-module-dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/Runner-master-emit-module.d",
+    "emit-module-diagnostics" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/Runner-master-emit-module.dia",
+    "swift-dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/Runner-master.swiftdeps"
+  },
+  "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/macos/Flutter/GeneratedPluginRegistrant.swift" : {
+    "const-values" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.swiftconstvalues",
+    "dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.d",
+    "diagnostics" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.dia",
+    "index-unit-output-path" : "/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.o",
+    "llvm-bc" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.bc",
+    "object" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.o",
+    "swift-dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.swiftdeps",
+    "swiftmodule" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant~partial.swiftmodule"
+  },
+  "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/macos/Runner/AppDelegate.swift" : {
+    "const-values" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/AppDelegate.d",
+    "diagnostics" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/AppDelegate.dia",
+    "index-unit-output-path" : "/Runner.build/Debug/Runner.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/AppDelegate.o",
+    "swift-dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/AppDelegate~partial.swiftmodule"
+  },
+  "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/macos/Runner/MainFlutterWindow.swift" : {
+    "const-values" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/MainFlutterWindow.swiftconstvalues",
+    "dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/MainFlutterWindow.d",
+    "diagnostics" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/MainFlutterWindow.dia",
+    "index-unit-output-path" : "/Runner.build/Debug/Runner.build/Objects-normal/arm64/MainFlutterWindow.o",
+    "llvm-bc" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/MainFlutterWindow.bc",
+    "object" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/MainFlutterWindow.o",
+    "swift-dependencies" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/MainFlutterWindow.swiftdeps",
+    "swiftmodule" : "/Applications/Castlexe/Codexe/GitHub Projelerim/api_get_post_mvvm/build/macos/Build/Intermediates.noindex/Runner.build/Debug/Runner.build/Objects-normal/arm64/MainFlutterWindow~partial.swiftmodule"
+  }
+}

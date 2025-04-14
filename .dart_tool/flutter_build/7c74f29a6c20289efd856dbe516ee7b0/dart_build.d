@@ -1,0 +1,1 @@
+ /Applications/Castlexe/Codexe/GitHub\ Projelerim/api_mvvm/.dart_tool/flutter_build/7c74f29a6c20289efd856dbe516ee7b0/dart_build_result.json: 
