@@ -13,3 +13,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(home: LoginView(), debugShowCheckedModeBanner: false);
   }
 }
+
+/* 
+
+isimlendirme dartlar en üstte package ortada şahsi dosyalar en altta(noktalı şekilde import)
+
+fromJson = jsondan gelen veriyi modele dönüştürür. (dan-den / jsondan geliyor)
+toJson = elimizdeki modeli jsona dönüştürür (a-e / json'a gönder)
+jsonEncode = elimizdeki dart objesini jsona dönüştürür
+jsonDecode = gelen json verisini dart objesine dönüştürür ( veriyi çözümle decode et )
+
+ */

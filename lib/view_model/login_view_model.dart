@@ -6,6 +6,8 @@ import 'package:http/http.dart' as http;
 import '../model/login_model.dart';
 import '../view/home_view.dart';
 
+// john@mail.com changeme
+
 class LoginViewModel with ChangeNotifier {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
