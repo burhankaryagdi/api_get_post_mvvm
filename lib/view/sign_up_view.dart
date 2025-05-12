@@ -1,5 +1,6 @@
-import 'package:api_get_post_mvvm/view_model/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
+
+import '../view_model/sign_up_view_model.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
@@ -73,7 +74,10 @@ class _SignUpViewState extends State<SignUpView> {
           child: const Text("Sign Up"),
           onPressed: () async {
             final result = await signUpViewModel.signUp();
-            if (result != null && context.mounted) {
+
+            if (!mounted) return;
+
+            if (result != null) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text("Kayıt başarılı: ${result.email}")),
               );

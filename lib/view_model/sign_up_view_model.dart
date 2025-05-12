@@ -29,10 +29,14 @@ class SignUpViewModel {
     if (res.statusCode == 201) {
       print("Sign Up Success");
       print(res.statusCode);
+
+      final json = jsonDecode(res.body);
+      return SignUpModel.fromJson(json);
     } else {
       print("Sign Up Failed");
       print(res.statusCode);
+
+      return null;
     }
-    return null;
   }
 }
