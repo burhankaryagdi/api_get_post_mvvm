@@ -1,5 +1,6 @@
-import 'package:api_get_post_mvvm/view/login_view.dart';
 import 'package:flutter/material.dart';
+
+import '../view/login_view.dart';
 
 void main() {
   runApp(MyApp());
