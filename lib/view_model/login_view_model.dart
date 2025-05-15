@@ -11,7 +11,6 @@ import '../view/home_view.dart';
 class LoginViewModel with ChangeNotifier {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  bool isLoading = false;
 
   Future<LoginModel?> login(BuildContext context) async {
     var url = Uri.parse("https://api.escuelajs.co/api/v1/auth/login");
@@ -43,6 +42,7 @@ class LoginViewModel with ChangeNotifier {
         );
       }
     }
+
     return null;
   }
 }

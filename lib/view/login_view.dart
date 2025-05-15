@@ -66,20 +66,18 @@ class _LoginViewState extends State<LoginView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              loginViewModel.isLoading
-                  ? CircularProgressIndicator()
-                  : ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blueGrey,
-                    ),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(fontSize: 25, color: Colors.white),
-                    ),
-                    onPressed: () {
-                      loginViewModel.login(context);
-                    },
-                  ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey,
+                ),
+                child: Text(
+                  "Login",
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+                ),
+                onPressed: () {
+                  loginViewModel.login(context);
+                },
+              ),
               SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(

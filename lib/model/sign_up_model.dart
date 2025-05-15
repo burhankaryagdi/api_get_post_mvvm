@@ -11,12 +11,14 @@ class SignUpModel {
     required this.avatar,
   });
 
-  factory SignUpModel.fromJson(Map<String, dynamic> json) => SignUpModel(
-    name: json["name"],
-    email: json["email"],
-    password: json["password"],
-    avatar: json["avatar"],
-  );
+  factory SignUpModel.fromJson(Map<String, dynamic> json) {
+    return SignUpModel(
+      name: json["name"],
+      email: json["email"],
+      password: json["password"],
+      avatar: json["avatar"],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
     "name": name,

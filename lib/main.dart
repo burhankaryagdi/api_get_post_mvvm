@@ -16,6 +16,9 @@ class MyApp extends StatelessWidget {
 }
 
 /* 
+soru : her sayfada kullanmak isteyeceğim bir widget yazmak istersem bunu
+ hangi dosyada konumlandırmam gerekiyor veya widgets adlı bir klasör açmalı mıyım ?
+
 
 isimlendirme dartlar en üstte package ortada şahsi dosyalar en altta(noktalı şekilde import)
 
