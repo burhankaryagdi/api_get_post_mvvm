@@ -14,7 +14,78 @@ class _SignUpViewState extends State<SignUpView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar(), body: _buildBody());
+    return Scaffold(
+      appBar: _buildAppBar(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextField(
+            controller: signUpViewModel.avatarController,
+            decoration: InputDecoration(
+              enabled: false,
+              labelText: "Avatar",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              prefixIcon: const Icon(Icons.person),
+            ),
+          ),
+          SizedBox(height: 20),
+          TextField(
+            controller: signUpViewModel.nameController,
+            decoration: InputDecoration(
+              labelText: "Name",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              prefixIcon: const Icon(Icons.text_fields),
+            ),
+          ),
+          SizedBox(height: 20),
+          TextField(
+            controller: signUpViewModel.emailController,
+            decoration: InputDecoration(
+              labelText: "Email",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              prefixIcon: const Icon(Icons.email),
+            ),
+          ),
+          SizedBox(height: 20),
+          TextField(
+            controller: signUpViewModel.passwordController,
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: "Password",
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              prefixIcon: const Icon(Icons.lock),
+            ),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            child: const Text("Sign Up"),
+            onPressed: () async {
+              final result = await signUpViewModel.signUp();
+
+              if (!mounted) return;
+
+              if (result != null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Kayıt başarılı: ${result.email}")),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Kayıt başarısız")),
+                );
+              }
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   AppBar _buildAppBar() {
@@ -25,70 +96,6 @@ class _SignUpViewState extends State<SignUpView> {
       ),
       centerTitle: true,
       backgroundColor: Colors.blueGrey,
-    );
-  }
-
-  _buildBody() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        TextField(
-          controller: signUpViewModel.avatarController,
-          decoration: InputDecoration(
-            enabled: false,
-            labelText: "Avatar",
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-            prefixIcon: const Icon(Icons.person),
-          ),
-        ),
-        SizedBox(height: 20),
-        TextField(
-          controller: signUpViewModel.nameController,
-          decoration: InputDecoration(
-            labelText: "Name",
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-            prefixIcon: const Icon(Icons.text_fields),
-          ),
-        ),
-        SizedBox(height: 20),
-        TextField(
-          controller: signUpViewModel.emailController,
-          decoration: InputDecoration(
-            labelText: "Email",
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-            prefixIcon: const Icon(Icons.email),
-          ),
-        ),
-        SizedBox(height: 20),
-        TextField(
-          controller: signUpViewModel.passwordController,
-          obscureText: true,
-          decoration: InputDecoration(
-            labelText: "Password",
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-            prefixIcon: const Icon(Icons.lock),
-          ),
-        ),
-        SizedBox(height: 20),
-        ElevatedButton(
-          child: const Text("Sign Up"),
-          onPressed: () async {
-            final result = await signUpViewModel.signUp();
-
-            if (!mounted) return;
-
-            if (result != null) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("Kayıt başarılı: ${result.email}")),
-              );
-            } else {
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(const SnackBar(content: Text("Kayıt başarısız")));
-            }
-          },
-        ),
-      ],
     );
   }
 }

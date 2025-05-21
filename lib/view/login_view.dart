@@ -15,7 +15,75 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar(), body: _buildBody());
+    return Scaffold(
+      appBar: _buildAppBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FlutterLogo(size: 170),
+            SizedBox(height: 20),
+            TextField(
+              controller: loginViewModel.emailController,
+              decoration: InputDecoration(
+                labelText: "Email",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                prefixIcon: Icon(Icons.email),
+              ),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              controller: loginViewModel.passwordController,
+              obscureText: false,
+              decoration: InputDecoration(
+                labelText: "Password",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                prefixIcon: Icon(Icons.lock),
+              ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueGrey,
+                  ),
+                  child: Text(
+                    "Login",
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
+                  onPressed: () {
+                    loginViewModel.login(context);
+                  },
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blueGrey,
+                  ),
+                  child: Text(
+                    "Sign Up",
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpView()),
+                    );
+                  },
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
   }
 
   AppBar _buildAppBar() {
@@ -29,75 +97,6 @@ class _LoginViewState extends State<LoginView> {
           fontWeight: FontWeight.bold,
           color: Colors.white,
         ),
-      ),
-    );
-  }
-
-  _buildBody() {
-    return SingleChildScrollView(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FlutterLogo(size: 170),
-          SizedBox(height: 20),
-          TextField(
-            controller: loginViewModel.emailController,
-            decoration: InputDecoration(
-              labelText: "Email",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              prefixIcon: Icon(Icons.email),
-            ),
-          ),
-          SizedBox(height: 20),
-          TextField(
-            controller: loginViewModel.passwordController,
-            obscureText: false,
-            decoration: InputDecoration(
-              labelText: "Password",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              prefixIcon: Icon(Icons.lock),
-            ),
-          ),
-          SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                ),
-                child: Text(
-                  "Login",
-                  style: TextStyle(fontSize: 25, color: Colors.white),
-                ),
-                onPressed: () {
-                  loginViewModel.login(context);
-                },
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                ),
-                child: Text(
-                  "Sign Up",
-                  style: TextStyle(fontSize: 25, color: Colors.white),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignUpView()),
-                  );
-                },
-              ),
-            ],
-          ),
-          SizedBox(height: 20),
-        ],
       ),
     );
   }

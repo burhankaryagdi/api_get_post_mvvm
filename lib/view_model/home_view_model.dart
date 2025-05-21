@@ -1,10 +1,11 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../model/user.dart';
 
-class HomeViewModel {
+class HomeViewModel with ChangeNotifier {
   final String url = "https://api.escuelajs.co/api/v1/users";
 
   Future<List<User>?> fetchUser() async {

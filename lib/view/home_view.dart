@@ -30,7 +30,21 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar(), body: _buildBody());
+    return Scaffold(
+      appBar: _buildAppBar(),
+      body: ListView.builder(
+        itemCount: users.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(users[index].name!),
+            subtitle: Text(users[index].email!),
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(users[index].avatar!),
+            ),
+          );
+        },
+      ),
+    );
   }
 
   AppBar _buildAppBar() {
@@ -40,21 +54,6 @@ class _HomeViewState extends State<HomeView> {
         "Users",
         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
       ),
-    );
-  }
-
-  _buildBody() {
-    return ListView.builder(
-      itemCount: users.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(users[index].name!),
-          subtitle: Text(users[index].email!),
-          leading: CircleAvatar(
-            backgroundImage: NetworkImage(users[index].avatar!),
-          ),
-        );
-      },
     );
   }
 }

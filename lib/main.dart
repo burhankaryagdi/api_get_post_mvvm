@@ -1,4 +1,8 @@
+import 'package:api_get_post_mvvm/view_model/home_view_model.dart';
+import 'package:api_get_post_mvvm/view_model/login_view_model.dart';
+import 'package:api_get_post_mvvm/view_model/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../view/login_view.dart';
 
@@ -11,11 +15,28 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: LoginView(), debugShowCheckedModeBanner: false);
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => HomeViewModel()),
+        ChangeNotifierProvider(create: (context) => LoginViewModel()),
+        ChangeNotifierProvider(create: (context) => SignUpViewModel()),
+      ],
+      child: MaterialApp(home: LoginView(), debugShowCheckedModeBanner: false),
+    );
   }
 }
 
 /* 
+TODO: 
+-isLoading kontolünü yap
+TODO:
+-provideri enjekte et
+TODO:
+-isimlendirmeye dikkat et
+TODO:
+-gereksiz kodlardan kurtul
+
+,
 soru : her sayfada kullanmak isteyeceğim bir widget yazmak istersem bunu
  hangi dosyada konumlandırmam gerekiyor veya widgets adlı bir klasör açmalı mıyım ?
 

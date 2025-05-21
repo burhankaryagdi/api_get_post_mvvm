@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 import '../model/sign_up_model.dart';
 
-class SignUpViewModel {
+class SignUpViewModel with ChangeNotifier {
   TextEditingController avatarController = TextEditingController(
     text: "https://picsum.photos/800",
   );
