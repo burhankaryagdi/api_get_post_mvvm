@@ -12,15 +12,12 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final HomeViewModel _homeViewModel = HomeViewModel();
   List<User> users = [];
 
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      Provider.of<HomeViewModel>(context, listen: false).fetchUser();
-    });
+    Provider.of<HomeViewModel>(context, listen: false).fetchUser();
   }
 
   @override

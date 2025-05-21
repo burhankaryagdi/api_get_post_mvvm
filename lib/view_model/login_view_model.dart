@@ -3,44 +3,52 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import '../model/login_model.dart';
-import '../view/home_view.dart';
-
-// john@mail.com changeme
-
 class LoginViewModel with ChangeNotifier {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
-  Future<LoginModel?> login(BuildContext context) async {
-    var url = Uri.parse("https://api.escuelajs.co/api/v1/auth/login");
-    var res = await http.post(
-      url,
-      headers: {"Content-Type": "application/json"},
-      body: jsonEncode({
-        "email": emailController.text,
-        "password": passwordController.text,
-      }),
-    );
-    if (res.statusCode == 200 || res.statusCode == 201) {
-      var jsonBody = jsonDecode(res.body);
-      String token = jsonBody["access_token"];
+  bool _isLoading = false;
+  String? _errorMessage;
 
-      if (context.mounted) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomeView(token: token)),
-        );
+  bool get isLoading => _isLoading;
+  String? get errorMessage => _errorMessage;
+
+  void _setLoading(bool value) {
+    _isLoading = value;
+    notifyListeners();
+  }
+
+  void _setError(String? message) {
+    _errorMessage = message;
+    notifyListeners();
+  }
+
+  Future<String?> login() async {
+    _setLoading(true);
+    _setError(null);
+
+    final url = Uri.parse("https://api.escuelajs.co/api/v1/auth/login");
+
+    try {
+      final res = await http.post(
+        url,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({
+          "email": emailController.text.trim(),
+          "password": passwordController.text.trim(),
+        }),
+      );
+
+      if (res.statusCode == 200 || res.statusCode == 201) {
+        final jsonBody = jsonDecode(res.body);
+        return jsonBody["access_token"];
+      } else {
+        _setError("Giriş başarısız. Hata kodu: ${res.statusCode}");
       }
-    } else {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text("Error: ${res.statusCode}"),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
+    } catch (e) {
+      _setError("Bir hata oluştu: $e");
+    } finally {
+      _setLoading(false);
     }
 
     return null;
