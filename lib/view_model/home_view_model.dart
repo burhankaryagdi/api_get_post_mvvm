@@ -8,15 +8,18 @@ import '../model/user.dart';
 class HomeViewModel with ChangeNotifier {
   final String url = "https://api.escuelajs.co/api/v1/users";
 
-  Future<List<User>?> fetchUser() async {
+  List<User> _users = [];
+  List<User> get users => _users;
+
+  Future<void> fetchUser() async {
     Uri uri = Uri.parse(url);
     var res = await http.get(uri);
     if (res.statusCode == 200 || res.statusCode == 201) {
       List<dynamic> jsonBody = jsonDecode(res.body);
-      return jsonBody.map((user) => User.fromJson(user)).toList();
+      _users = jsonBody.map((e) => User.fromJson(e)).toList();
+      notifyListeners();
     } else {
       print("Error: ${res.statusCode}");
     }
-    return null;
   }
 }

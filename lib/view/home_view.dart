@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../model/user.dart';
 import '../view_model/home_view_model.dart';
@@ -17,14 +18,8 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    _homeViewModel.fetchUser().then((value) {
-      if (value != null) {
-        setState(() {
-          users = value;
-        });
-      } else {
-        print("Error: No data found");
-      }
+    Future.microtask(() {
+      Provider.of<HomeViewModel>(context, listen: false).fetchUser();
     });
   }
 
@@ -32,15 +27,23 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: ListView.builder(
-        itemCount: users.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(users[index].name!),
-            subtitle: Text(users[index].email!),
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(users[index].avatar!),
-            ),
+      body: Consumer<HomeViewModel>(
+        builder: (context, viewModel, child) {
+          final users = viewModel.users;
+          if (users.isEmpty) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return ListView.builder(
+            itemCount: users.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(users[index].name!),
+                subtitle: Text(users[index].email!),
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage(users[index].avatar!),
+                ),
+              );
+            },
           );
         },
       ),
