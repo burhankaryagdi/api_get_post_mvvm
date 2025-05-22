@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../view_model/sign_up_view_model.dart';
 
@@ -10,80 +11,84 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  SignUpViewModel signUpViewModel = SignUpViewModel();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextField(
-            controller: signUpViewModel.avatarController,
-            decoration: InputDecoration(
-              enabled: false,
-              labelText: "Avatar",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
+      body: Consumer<SignUpViewModel>(
+        builder: (context, viewModel, child) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                controller: viewModel.avatarController,
+                decoration: InputDecoration(
+                  enabled: false,
+                  labelText: "Avatar",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  prefixIcon: const Icon(Icons.person),
+                ),
               ),
-              prefixIcon: const Icon(Icons.person),
-            ),
-          ),
-          SizedBox(height: 20),
-          TextField(
-            controller: signUpViewModel.nameController,
-            decoration: InputDecoration(
-              labelText: "Name",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
+              SizedBox(height: 20),
+              TextField(
+                controller: viewModel.nameController,
+                decoration: InputDecoration(
+                  labelText: "Name",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  prefixIcon: const Icon(Icons.text_fields),
+                ),
               ),
-              prefixIcon: const Icon(Icons.text_fields),
-            ),
-          ),
-          SizedBox(height: 20),
-          TextField(
-            controller: signUpViewModel.emailController,
-            decoration: InputDecoration(
-              labelText: "Email",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
+              SizedBox(height: 20),
+              TextField(
+                controller: viewModel.emailController,
+                decoration: InputDecoration(
+                  labelText: "Email",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  prefixIcon: const Icon(Icons.email),
+                ),
               ),
-              prefixIcon: const Icon(Icons.email),
-            ),
-          ),
-          SizedBox(height: 20),
-          TextField(
-            controller: signUpViewModel.passwordController,
-            obscureText: true,
-            decoration: InputDecoration(
-              labelText: "Password",
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
+              SizedBox(height: 20),
+              TextField(
+                controller: viewModel.passwordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  prefixIcon: const Icon(Icons.lock),
+                ),
               ),
-              prefixIcon: const Icon(Icons.lock),
-            ),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            child: const Text("Sign Up"),
-            onPressed: () async {
-              final result = await signUpViewModel.signUp();
+              SizedBox(height: 20),
+              ElevatedButton(
+                child: const Text("Sign Up"),
+                onPressed: () async {
+                  final result = await viewModel.signUp();
 
-              if (!mounted) return;
+                  if (!mounted) return;
 
-              if (result != null) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("Kayıt başarılı: ${result.email}")),
-                );
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Kayıt başarısız")),
-                );
-              }
-            },
-          ),
-        ],
+                  if (result != null && context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("Kayıt başarılı: ${result.email}"),
+                      ),
+                    );
+                  } else if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Kayıt başarısız")),
+                    );
+                  }
+                },
+              ),
+            ],
+          );
+        },
       ),
     );
   }

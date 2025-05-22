@@ -27,14 +27,6 @@ class MyApp extends StatelessWidget {
 }
 
 /* 
-TODO: 
--isLoading kontolünü yap
-TODO:
--provideri enjekte et
-TODO:
--isimlendirmeye dikkat et
-TODO:
--gereksiz kodlardan kurtul
 
 ,
 soru : her sayfada kullanmak isteyeceğim bir widget yazmak istersem bunu
