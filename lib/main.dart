@@ -25,3 +25,15 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/* 
+kullanılmayan anlamsız modeller olmayacak. 
+
+giriş yapıldığında veya kayıt yapıldıgında 
+tokeni kaydet shared preferences ile karşılama ekranı karşılasın giriş yapılmışssa veya 
+ daha önceden kayıt yapılmışsa direkt home sayfasına yönlendirsin
+
+signupta kullanıcı kayıt olduktan sonra giriş sayfasına yönlendirsin 
+
+ROUTER yapısı öğrenilip kullanılacak.
+*/

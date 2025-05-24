@@ -1,9 +1,9 @@
 import 'dart:convert';
+import 'dart:developer';
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+
 import 'package:http/http.dart' as http;
-
-import '../model/sign_up_model.dart';
 
 class SignUpViewModel with ChangeNotifier {
   TextEditingController avatarController = TextEditingController(
@@ -13,7 +13,7 @@ class SignUpViewModel with ChangeNotifier {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  Future<SignUpModel?> signUp() async {
+  void signUp(BuildContext context) async {
     var url = Uri.parse("https://api.escuelajs.co/api/v1/users/");
 
     var res = await http.post(
@@ -27,16 +27,21 @@ class SignUpViewModel with ChangeNotifier {
       }),
     );
     if (res.statusCode == 201) {
-      print("Sign Up Success");
-      print(res.statusCode);
-
-      final json = jsonDecode(res.body);
-      return SignUpModel.fromJson(json);
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Kayıt başarılı: ${emailController.text}")),
+        );
+      }
+      log("Sign Up Success");
+      log(res.statusCode.toString());
     } else {
-      print("Sign Up Failed");
-      print(res.statusCode);
-
-      return null;
+      if (context.mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text("Kayıt başarısız")));
+        log("Sign Up Failed");
+        log(res.statusCode.toString());
+      }
     }
   }
 }

@@ -68,22 +68,8 @@ class _SignUpViewState extends State<SignUpView> {
               SizedBox(height: 20),
               ElevatedButton(
                 child: const Text("Sign Up"),
-                onPressed: () async {
-                  final result = await viewModel.signUp();
-
-                  if (!mounted) return;
-
-                  if (result != null && context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text("Kayıt başarılı: ${result.email}"),
-                      ),
-                    );
-                  } else if (context.mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Kayıt başarısız")),
-                    );
-                  }
+                onPressed: () {
+                  viewModel.signUp(context);
                 },
               ),
             ],
