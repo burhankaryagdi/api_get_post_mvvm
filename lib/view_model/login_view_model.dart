@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../view/home_view.dart';
+
 class LoginViewModel with ChangeNotifier {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -52,5 +54,19 @@ class LoginViewModel with ChangeNotifier {
     }
 
     return null;
+  }
+
+  Future<void> loginControl(BuildContext context) async {
+    final token = await login();
+    if (token != null && context.mounted) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => HomeView(token: token)),
+      );
+    } else if (_errorMessage != null && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(_errorMessage!), backgroundColor: Colors.red),
+      );
+    }
   }
 }
